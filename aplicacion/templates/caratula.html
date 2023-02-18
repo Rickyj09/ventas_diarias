@@ -1,0 +1,181 @@
+{% extends 'layout_for.html' %}
+{%block title%} CARATULA FR-INSP-009.05 {%endblock%}
+{% block content %}
+<body>
+    <hr>
+    <h1>FR-INSP-009.05 Reporte Inspección Grúas Boom Articulado</h1>
+    <form class="row g-3 needs-validation" novalidate method="POST">
+        <hr>
+        <h3>DATOS DEL EQUIPO</h3>
+        <div class="form-group col-xs-12 col-sm-12 col-md-4  position-relative">
+            {{ form.de_marca.label }} {{ form.de_marca(class_="form-control") }}
+            {% for error in form.de_marca.errors %}
+                <span style="color: red;"> {{ error }} </span>
+            {% endfor %}
+        </div>
+        <div class="form-group col-xs-12 col-sm-12 col-md-4  position-relative">
+            {{ form.de_serie.label }} {{ form.de_serie(class_="form-control") }}
+            {% for error in form.de_serie.errors %}
+                <span style="color: red;"> {{ error }} </span>
+            {% endfor %}
+        </div>
+        <div class="form-group col-xs-12 col-sm-12 col-md-4  position-relative">
+             {{ form.de_tipo.label }} {{ form.de_tipo(class_="form-control") }}
+            {% for error in form.de_tipo.errors %}
+                <span style="color: red;"> {{ error }} </span>
+            {% endfor %}
+        </div>
+        <div class="form-group col-xs-12 col-sm-12 col-md-4  position-relative">
+            {{ form.de_modelo.label }} {{ form.de_modelo(class_="form-control") }}
+            {% for error in form.de_modelo.errors %}
+                <span style="color: red;"> {{ error }} </span>
+            {% endfor %}
+        </div>
+        <div class="form-group col-xs-12 col-sm-12 col-md-4  position-relative">
+            {{ form.de_capacidad.label }} {{ form.de_capacidad(class_="form-control") }}
+            {% for error in form.de_capacidad.errors %}
+                <span style="color: red;"> {{ error }} </span>
+            {% endfor %}
+        </div>
+        <div class="form-group col-xs-12 col-sm-12 col-md-4  position-relative">
+           {{ form.de_horometro.label }} {{ form.de_horometro(class_="form-control") }}
+            {% for error in form.de_horometro.errors %}
+                <span style="color: red;"> {{ error }} </span>
+            {% endfor %}
+        </div>
+        <div class="form-group col-xs-12 col-sm-12 col-md-4  position-relative">
+           {{ form.de_anio.label }} {{ form.de_anio(class_="form-control") }}
+            {% for error in form.de_anio.errors %}
+                <span style="color: red;"> {{ error }} </span>
+            {% endfor %}
+        </div>
+        <div class="form-group col-xs-12 col-sm-12 col-md-4  position-relative">
+           {{ form.de_cod_interno.label }} {{ form.de_cod_interno(class_="form-control") }}
+            {% for error in form.de_cod_interno.errors %}
+                <span style="color: red;"> {{ error }} </span>
+            {% endfor %}
+        </div>
+        
+        <hr>
+        <h3>DATOS DEL MOTOR</h3>
+        <div class="form-group col-xs-12 col-sm-12 col-md-4  position-relative">
+			{{ form.dm_marca.label }} {{ form.dm_marca(class_="form-control") }}
+            {% for error in form.dm_marca.errors %}
+                <span style="color: red;"> {{ error }} </span>
+            {% endfor %}
+        </div>
+        <div class="form-group col-xs-12 col-sm-12 col-md-4  position-relative">
+			{{ form.dm_serie.label }} {{ form.dm_serie(class_="form-control") }}
+            {% for error in form.dm_serie.errors %}
+                <span style="color: red;"> {{ error }} </span>
+            {% endfor %}
+        </div>
+        <div class="form-group col-xs-12 col-sm-12 col-md-4  position-relative">
+			{{ form.dm_modelo.label }} {{ form.dm_modelo(class_="form-control") }}
+            {% for error in form.dm_modelo.errors %}
+                <span style="color: red;"> {{ error }} </span>
+            {% endfor %}
+        </div>
+        <div class="form-group col-xs-12 col-sm-12 col-md-4  position-relative">
+			{{ form.dm_kilometraje.label }} {{ form.dm_kilometraje(class_="form-control") }}
+            {% for error in form.dm_kilometraje.errors %}
+                <span style="color: red;"> {{ error }} </span>
+            {% endfor %}
+        </div>
+        
+        <h3>CAPACIDADES DE TRABAJO</h3>
+        <div class="form-group col-xs-12 col-sm-12 col-md-4  position-relative">
+			{{ form.ct_capmax.label }} {{ form.ct_capmax(class_="form-control") }}
+            {% for error in form.ct_capmax.errors %}
+                <span style="color: red;"> {{ error }} </span>
+            {% endfor %}
+        </div>
+        <div class="form-group col-xs-12 col-sm-12 col-md-4  position-relative">
+			{{ form.ct_longpluma.label }} {{ form.ct_longpluma(class_="form-control") }}
+            {% for error in form.ct_longpluma.errors %}
+                <span style="color: red;"> {{ error }} </span>
+            {% endfor %}
+        </div>
+        <div class="form-group col-xs-12 col-sm-12 col-md-4  position-relative">
+			{{ form.ct_radio.label }} {{ form.ct_radio(class_="form-control") }}
+            {% for error in form.ct_radio.errors %}
+                <span style="color: red;"> {{ error }} </span>
+            {% endfor %}
+        </div>
+        <div class="form-group col-xs-12 col-sm-12 col-md-4  position-relative">
+			{{ form.ct_angulo.label }} {{ form.ct_angulo(class_="form-control") }}
+            {% for error in form.ct_angulo.errors %}
+                <span style="color: red;"> {{ error }} </span>
+            {% endfor %}
+        </div>
+        <hr>
+
+        <h3>DATOS DEL CAMIÓN</h3>
+        <div class="form-group col-xs-12 col-sm-12 col-md-4  position-relative">
+			{{ form.marca.label }} {{ form.marca(class_="form-control") }}
+            {% for error in form.marca.errors %}
+                <span style="color: red;"> {{ error }} </span>
+            {% endfor %}
+        </div>
+        <div class="form-group col-xs-12 col-sm-12 col-md-4  position-relative">
+			{{ form.modelo.label }} {{ form.modelo(class_="form-control") }}
+            {% for error in form.modelo.errors %}
+                <span style="color: red;"> {{ error }} </span>
+            {% endfor %}
+        </div>
+        <div class="form-group col-xs-12 col-sm-12 col-md-4  position-relative">
+			{{ form.placa.label }} {{ form.placa(class_="form-control") }}
+            {% for error in form.placa.errors %}
+                <span style="color: red;"> {{ error }} </span>
+            {% endfor %}
+        </div>
+
+        <hr>
+        <h3>DATOS BLOQUES DE CARGA</h3>
+        <div class="form-group col-xs-12 col-sm-12 col-md-4  position-relative">
+			{{ form.bloque_carga.label }} {{ form.bloque_carga(class_="form-control") }}
+            {% for error in form.bloque_carga.errors %}
+                <span style="color: red;"> {{ error }} </span>
+            {% endfor %}
+        </div>
+        <h3>MONTAJE DE GRÚA</h3>
+        <div class="form-group col-xs-12 col-sm-12 col-md-4  position-relative">
+			{{ form.numero_estabi.label }} {{ form.numero_estabi(class_="form-control") }}
+            {% for error in form.numero_estabi.errors %}
+                <span style="color: red;"> {{ error }} </span>
+            {% endfor %}
+        </div>
+        <div class="form-group col-xs-12 col-sm-12 col-md-4  position-relative">
+			{{ form.tipo_montaje.label }} {{ form.tipo_montaje(class_="form-control") }}
+            {% for error in form.tipo_montaje.errors %}
+                <span style="color: red;"> {{ error }} </span>
+            {% endfor %}
+        </div>
+       
+	
+        <hr>
+        
+       
+    <center>
+<h5>El equipo antes descrito fue inspeccionado empleando técnicas de inspección de acuerdo a normativas de referencia:
+    ASME B30.22 (2016) y manual del fabricante.</h5></center>
+    <h2>RESULTADOS: </h2>
+    <div class="form-group col-xs-12 col-sm-12 col-md-4  position-relative">
+        
+        {{ form.conf_caratula.label }} {{ form.conf_caratula(class_="form-control") }}
+        {% for error in form.conf_caratula.errors %}
+            <span style="color: red;"> {{ error }} </span>
+        {% endfor %}
+      </div>
+      
+      <div class="col-12">
+        {{ form.hidden_tag() }}
+        {{ form.submit(class_="btn btn-primary") }}
+      </div>
+      
+
+      
+    </form>  
+</body>
+</html>
+{% endblock %}

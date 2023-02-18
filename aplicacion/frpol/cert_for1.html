@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <link rel="stylesheet" href="C:\Ricardo\paginas_web\u30\aplicacion\static\css\style.css">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head>
+
+
+<body background="C:\Ricardo\paginas_web\u30\aplicacion\static\img\logo2020.png">
+
+  
+  <div>
+        <img src="C:\Ricardo\paginas_web\u30\aplicacion\static\img\ca_cert.png">
+      </div>
+     
+  </div>
+      <form class="row g-3 needs-validation" novalidate>
+      {% for emi in for_emi %}
+      <div class="form-group col-xs-12 col-sm-12 col-md-12  position-relative">
+        <h4>CERTIFICADO INSPECCIÓN Nº (Inspection): {{ emi.2 }}</h4>
+      </div>
+      <div class="form-group col-xs-12 col-sm-12 col-md-12  position-relative">
+        <h4>SOLICITADO POR (Required by): {{ emi.9 }}</h4>
+      </div>
+      <div class="form-group col-xs-12 col-sm-12 col-md-12  position-relative">
+        <h4>FECHA DE INSPECCIÓN (Inspection date): {{ emi.4 }}</h4>
+      </div>
+      <div class="form-group col-xs-12 col-sm-12 col-md-12  position-relative">
+        <h4>LUGAR DE INSPECCIÓN (Inspection place): {{ emi.7 }}</h4>
+      </div>
+      <div class="form-group col-xs-12 col-sm-12 col-md-12  position-relative">
+        <h4>INSPECTOR RESPONSABLE (Inspector): {{ emi.8 }}</h4>
+      </div>
+      {% endfor %}
+      </form>
+      <center>
+      <h3>DESCRIPCIÓN DE ACCESORIOS INSPECCIONADOS</h3>
+          <table class="table table-bordered">
+
+          <tr>
+            <th>Nº</th>
+            <th>CÓDIGO ENII</th>
+            <th>REFERENCIA</th>
+            <th>ANCHO (mm)</th>
+            <th>DIÁMETRO (mm)</th>
+
+          </tr>
+          {% for cat in data %}
+          <tr>
+            <td>{{loop.index}}</td>
+            <td>{{cat.2}}</td>
+            <td>{{cat.1}}</td>
+            <td>{{cat.3}}</td>
+            <td>{{cat.4}}</td>
+
+          </tr>
+          {% endfor %}
+        </table>
+      </center>
+
+
+
+  <h2>RESULTADOS DE INSPECCIÓN</h2>
+  <p>De acuerdo a los resultados obtenidos y que se adjunta en el reporte, quienes firman, certifican que en la fecha
+    de esta inspección, las poleas descritas, fueron sometidas a pruebas de ensayo no destructivo de fueron sometidas
+    a pruebas de ensayo no destructivo de Inspección Visual; según ASME Sección V Artículo 9 (2019) y Líquidos
+    Penetrantes; según ASME Sección V Artículo 6 (2019) y ASTM E165/E165M-18, la evaluación de conformidad de los
+    elementos fueron realizados bajo los criterios del estándar AWS D1.1. (2020) Código de Soldadura Estructural -
+    Acero, para la emisión del presente CERTIFICADO con RESULTADO APROBADO.
+  </p>
+
+  <p>Los accesorios fueron preparados e inspeccionados, de acuerdo con los requerimientos del procedimiento aplicado
+    PR-INSP-006 Inspección visual y PR-INSP-007 Líquidos penetrantes.</p>
+
+  <p>Este certificado hace referencia a las condiciones que presentan los accesorios al momento de la inspección, sin
+    ninguna obligación o responsabilidad posterior</p>
+
+  <hr>
+  <form class="row g-3 needs-validation" novalidate>
+    {% for emi in for_emi %}
+    <div class="form-group col-xs-12 col-sm-12 col-md-12  position-relative">
+      <h4>Fecha de emisión del certificado (Certificate issue date): {{ emi.5 }}</h4>
+    </div>
+    <div class="form-group col-xs-12 col-sm-12 col-md-12  position-relative">
+      <h4>Fecha de vencimiento del Certificado (Proof load due date): {{ emi.6 }}</h4>
+    </div>
+    <div class="form-group col-xs-12 col-sm-12 col-md-12  position-relative">
+      <h4>Fecha de próxima de inspección (Next inspection date): {{ emi.6 }}</h4>
+    </div>
+  </form>
+  <hr>
+  <center>
+    <h4> NOMBRE </h4>
+    <h2>GERENTE TECNICO ENII SA</h2>
+    <div class="form-group col-xs-12 col-sm-12 col-md-12  position-relative">
+      <h4> {{ emi.2 }}</h4>
+    </div>
+    {% endfor %}
+  </center>
+
+</body>
+
+<footer>
+  <div class="form-group col-xs-12 col-sm-12 col-md-4  position-relative">
+    <a href="{{ url_for('resum_frpol')}}" class="btn btn-primary">VOLVER</a>
+
+    <a href="{{ url_for('genera_pdf1')}}" class="btn btn-primary">PDF</a>
+  </div>
+
+</footer>
+
+</html>

@@ -1,0 +1,34 @@
+{% extends 'layout_for.html' %}
+{%block title%} TOTAL DÍA {%endblock%}
+{% block content %}
+
+<body>
+    
+    <div class="list-group">
+        <table class="table table-bordered">
+            <tr>
+                <th>Fecha</th>
+                <th>Total</th>
+            </tr>
+            {% for cat in data %}
+            <tr>
+                <td>{{cat.1}}</td>
+                <td>{{cat.0}}</td>
+              
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+    <hr>
+    <div class="col-12">
+        <a href="{{ url_for('inicio_new') }}" class="btn btn-dark btn-sm rounded-0">Fin día</a>
+    </div>
+        <hr>
+
+
+
+</body>
+
+</html>
+{% endblock %}

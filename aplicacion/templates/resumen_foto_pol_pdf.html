@@ -1,0 +1,74 @@
+<div class="parent">
+  <div class="div1"> 
+    <img src="C:\Ricardo\paginas_web\u30\aplicacion\static\img\re_frcad.png"> 
+  </div>
+  
+  <div class="div2"> 
+    {% for dato in for_emi %}
+      PROCEDIMIENTO Nº: {{ dato.3 }}
+    {% endfor %}
+  </div>
+  <hr>
+  <div class="div3"> 
+    {% for dato in for_emi %}
+        EMPRESA: {{ dato.3 }} <br>
+        LUGAR DE INSPECCIÓN: {{ dato.3 }} <br>
+        NOMBRE INSPECTOR: {{ dato.3 }}
+    {% endfor %}
+  </div>
+  <hr>
+  <div class="div4">
+    {% for dato in for_emi %}
+        FECHA DE INSPECCIÓN: {{ dato.3 }} <br>
+        FECHA DE EMISIÓN: {{ dato.3 }} <br>
+        FECHA DE EXPIRACIÓN: {{ dato.3 }}
+    {% endfor %}
+  </div>
+  <hr>
+  <div class="div5">
+    <img width="300" src="C:\Ricardo\paginas_web\u30\aplicacion\static\img\foto8.jpg"> <br>
+    INFORMACIÓN GENERAL
+  </div>
+  <div class="div6">
+    <img width="300" src="C:\Ricardo\paginas_web\u30\aplicacion\static\img\foto8.jpg"> <br>
+    INSTRUMENTACIÓN
+  </div>
+  <div class="div7">
+    <img width="300" src="C:\Ricardo\paginas_web\u30\aplicacion\static\img\foto8.jpg"> <br>
+    INSPECCIÓN DIMENCIONAL
+  </div>
+  <div class="div8"> 
+    <img width="300" src="C:\Ricardo\paginas_web\u30\aplicacion\static\img\foto8.jpg"> <br>
+    IDENTIFICACIÓN ACCESORIOS
+  </div>
+  <div class="div9"> 
+    <img width="300" src="C:\Ricardo\paginas_web\u30\aplicacion\static\img\foto8.jpg"> <br>
+    APLICACIÓN LIQUIDO PENETRANTE 5min
+  </div>
+  <div class="div10"> 
+    <img   width="300" src="{{url_for('static',filename='img/subidas/pol/045-3.jpg')}}"/> <br>
+    APLICACIÓN REVELADOR 10min
+  </div>
+  
+  <div class="div11"> 
+    <table class="table table-bordered">
+      <tr>
+        <th>FOTO</th>
+        <th>FECHA DE FOTO</th>
+      </tr>
+      {% for cat in data %}
+      <tr>
+        <td><img width="200" src="{{url_for('static',filename='img/subidas/pol/')}}{{cat.1}}"/></td>
+        <td>{{cat.2}}</td>
+      </tr>
+      {% endfor %}
+      </table> 
+  </div>
+  <div class="div12">RESUMEN </div>
+  <div class="div13">FIRMAS </div>
+  </div>
+</body>
+<div class="col-12">
+   
+<a href="{{ url_for('genera_pdffoto2') }}" class="btn btn-dark btn-sm rounded-0">PDF</a>
+</div>

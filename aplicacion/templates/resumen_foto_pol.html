@@ -1,0 +1,131 @@
+{% extends "layout_for.html" %}
+
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> {%block title%}REPORTE DE INSPECCIÓN POLEAS{%endblock%}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.css')}}" />
+</head>
+
+<body>
+
+
+  <div class="container">
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4">
+      <div class="col"></div>
+      <div class="col"></div>
+      <div class="col" style="background: #b9c4d6;">REPORTE NÚMERO:</div>
+      <div class="col" style="background: #b9c4d6;">{{ num_rep.0 }}</div>
+    </div>
+
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-2 ">
+      {% for dato in for_emi %}
+      <div class="col-6">
+        EMPRESA: {{ dato.9 }} <br>
+        LUGAR DE INSPECCIÓN: {{ dato.7 }} <br>
+        NOMBRE DEL INSPECTOR: {{ dato.8 }}
+      </div>
+      <div class="col-6">
+        FECHA DE INSPECCIÓN: {{ dato.4 }} <br>
+        FECHA DE EMISIÓN: {{ dato.5 }} <br>
+        FECHA DE EXPIRACIÓN: {{ dato.6 }}
+      </div>
+      {% endfor  %}
+    </div>
+<hr>
+<div class="row row-cols-1 row-cols-sm-2 row-cols-md-1">
+  <div class="col" style="background: #20252e;">
+    <center> <h7 style="color:#f0e8e8">VISTA GENERAL</h7></center>
+  </div>
+</div>
+<br>
+<div class="div11"> 
+  <table class="table table-bordered">
+    <tr>
+      {% for cat in data %}
+        <th><img width="200" src="{{url_for('static',filename='img/subidas/pol/')}}{{cat.1}}"/></th>
+      {% endfor %}
+    </tr>
+    <tr>
+      <td>INFORMACIÓN GENERAL</td>
+      <td>INSTRUMENTACIÓN</td>
+      <td>INSPECCIÓN DIMENSIONAL</td>
+      <td>IDENTIFICACIÓN ACCESORIOS</td>
+      <td>APLICACIÓN LIQUIDO PENETRANTE 5 min</td>
+      <td>APLICACIÓN REVELADOR 10 min</td>
+    </tr>
+    </table> 
+</div>
+
+<div class="row row-cols-1 row-cols-sm-2 row-cols-md-1">
+  <div class="col" style="background: #20252e;">
+    <center> <h7 style="color:#f0e8e8">EQUIPOS UTILIZADOS EN LA INSPECCIÓN</h7></center>
+  </div>
+</div>
+<div class="div11"> 
+  <table class="table table-bordered">
+    <tr>
+      <th>DESCRIPCIÓN</th>
+      <th>CÓDIGO</th>
+      <th>FECHA DE CALIBRACIÓN</th>
+    </tr>
+    {% for cat in data_ins %}
+    <tr>
+      <td>{{cat.1}}</td>
+      <td>{{cat.2}}</td>
+      <td>{{cat.2}}</td>
+    </tr>
+    {% endfor %}
+    </table> 
+</div>
+
+<div class="row row-cols-1 row-cols-sm-2 row-cols-md-1">
+  <div class="col" style="background: #20252e;">
+    <center> <h7 style="color:#f0e8e8">RESUMEN DE LA INSPECCIÓN</h7></center>
+  </div>
+</div>
+
+<div class="row row-cols-1 row-cols-sm-2 row-cols-md-1">
+  <div class="col" style="background: #cdd2db;">
+    <p>De acuerdo a los resultados obtenidos y que se adjunta en el reporte, quienes firman, certifican que en la fecha de esta inspección, las poleas descritas, fueron sometidas a pruebas de ensayo no destructivo de Inspección Visual; según ASME Sección V Artículo 9 (2019) y Líquidos Penetrantes; según ASME Sección V Artículo 6 (2019) y ASTM E165/E165M-18, la evaluación de conformidad de los elementos fueron realizados bajo los criterios del estándar  AWS D1.1. (2020) Código de Soldadura Estructural - Acero,  para la emisión del presente reporte.</p>
+    <p><b>El accesorio será considerado como APROBADO,  para incluirlo en el CERTIFICADO, siempre que, apruebe tanto la Inspección Visual como la Inspección por Líquidos Penetrantes.</b></p>
+    <p>Los abajo firmantes, certificamos que lo expuesto en este registro, es correcto y que el elemento o accesorio fueron preparadas e inspeccionadas, de acuerdo con los requerimientos  del procedimiento aplicado  PR-INSP-006 Inspección visual, PR-INSP-007 Líquidos penetrantes.</p>
+  </div>
+</div>
+
+<div class="row row-cols-1 row-cols-sm-2 row-cols-md-2 ">
+  {% for dato in for_emi %}
+  <div class="col-6">
+    <center> <h7 style="color:#1f1d1d">INSPECTOR ENII SA NDT NIVEL II VT Y PT</h7></center>
+  </div>
+  <div class="col-6">
+    <center> <h7 style="color:#1f1d1d">GERENTE TÉCNICO ENII SA NDT NIVEL II VT Y PT</h7></center>
+  </div>
+  {% endfor  %}
+</div>
+
+
+</div>
+
+
+
+</body>
+<footer>
+  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4">
+
+    <div class="col">
+      <a href="{{ url_for('genera_pdf2')}}" class="btn btn-primary">PDF</a>
+    </div>
+    <div class="col"></div>
+    <div class="col"></div>
+  </div>
+</footer>
+</html>
+
+{% endblock %}
